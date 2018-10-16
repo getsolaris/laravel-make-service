@@ -1,0 +1,30 @@
+{
+    "name": "getsolaris/laravel-make-service",
+    "description": "Laravel MVCS Pattern Create a new Service class",
+    "keywords": [
+        "laravel",
+        "mvcs",
+        "service"
+    ],
+    "type": "library",
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": "~5.1",
+        "illuminate/console": "~5.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mingeun Kim",
+            "email": "mingeun.k.k@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "getsolaris\\LaravelCreateService\\": "src/"
+        }
+    }
+}
