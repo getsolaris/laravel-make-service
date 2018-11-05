@@ -13,11 +13,7 @@ class CreateServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        mkdir(app_path('Http/Services')); 
-        $this->publishes([
-            __DIR__.'/Services/Service.php' => app_path('Http/Services/Service.php'),
-            __DIR__.'/Commands/MakeServices.php' => app_path('Console/Commands/MakeServices.php'),
-        ]);
+
     }
     /**
      * Register the application services.
@@ -26,6 +22,9 @@ class CreateServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->app->singleton('command.getsolaris.makeservice', function ($app) {
+            return $app['getsolaris\LaravelCreateService\Commands\MakeServices'];
+        });
+        $this->commands('command.getsolaris.makeservice');
     }
 }

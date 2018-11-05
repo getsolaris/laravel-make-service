@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace getsolaris\LaravelCreateService\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -41,6 +41,9 @@ class MakeServices extends Command
     {
         $name = trim($this->argument('name'));
 
+        if (! file_exists(app_path('Http/Services'))) 
+            mkdir(app_path('Http/Services'), 0777); 
+
         if (! $name or is_null($name) or empty($name)) {
             $this->error('Not enough arguments (missing: "name").');
             return false;
@@ -59,7 +62,7 @@ class MakeServices extends Command
             return false;
         }
 
-        $original = $this->files->get(app_path('Http/Services/Service.php'));
+        $original = $this->files->get(__DIR__ . '/../Services/Service.php');
 
         $original = str_replace('ServiceName', ucfirst($name), $original);
         $this->files->put(app_path('Http/Services/' . $name . '.php'), $original);
