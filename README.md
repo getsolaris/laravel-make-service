@@ -19,10 +19,6 @@ composer require getsolaris/laravel-make-service
     getsolaris\LaravelCreateService\CreateServiceProvider::class,
 ];
 ```
- 
-```bash
-php artisan vendor:publish --provider="getsolaris\LaravelCreateService\CreateServiceProvider"
-```
 
 ```bash
 php artisan make:service {name}
