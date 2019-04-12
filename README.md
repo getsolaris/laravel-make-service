@@ -5,7 +5,7 @@
 </p>
 
 # Introduction
-Laravel MVCS Pattern Create a new Service Class
+Laravel Make Service Class
 
 # Install
 ```bash
@@ -23,3 +23,7 @@ composer require getsolaris/laravel-make-service
 ```bash
 php artisan make:service {name}
 ```
+
+# Versions
+- `v0.1` app\Http\Services
+- `v0.2` app\Services 

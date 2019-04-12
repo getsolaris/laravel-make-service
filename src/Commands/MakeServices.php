@@ -41,8 +41,8 @@ class MakeServices extends Command
     {
         $name = trim($this->argument('name'));
 
-        if (! file_exists(app_path('Http/Services'))) 
-            mkdir(app_path('Http/Services'), 0777); 
+        if (! file_exists(app_path('Services')))
+            mkdir(app_path('Services'), 0777);
 
         if (! $name or is_null($name) or empty($name)) {
             $this->error('Not enough arguments (missing: "name").');
@@ -57,7 +57,7 @@ class MakeServices extends Command
 
         $file = $name . '.php';
 
-        if ($this->files->exists(app_path('Http/Services/' . $file))) {
+        if ($this->files->exists(app_path('Services/' . $file))) {
             $this->error('Service already exists!');
             return false;
         }
@@ -65,7 +65,7 @@ class MakeServices extends Command
         $original = $this->files->get(__DIR__ . '/../Services/Service.php');
 
         $original = str_replace('ServiceName', ucfirst($name), $original);
-        $this->files->put(app_path('Http/Services/' . $name . '.php'), $original);
+        $this->files->put(app_path('Services/' . $name . '.php'), $original);
 
         $this->info('Service created successfully.');
         return true;
