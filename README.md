@@ -23,7 +23,3 @@ composer require getsolaris/laravel-make-service
 ```bash
 php artisan make:service {name}
 ```
-
-# Versions
-- `v0.1` app\Http\Services
-- `v0.2` app\Services 
