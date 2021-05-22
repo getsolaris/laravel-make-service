@@ -1,0 +1,10 @@
+<?php
+
+namespace $namespace$;
+
+use Getsolaris\LaravelMakeService\Service\BaseService;
+
+class $className$ extends BaseService
+{
+    // in your code
+}
