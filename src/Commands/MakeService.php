@@ -33,7 +33,7 @@ class MakeService extends GeneratorCommand
      * @param  string  $rawName
      * @return bool
      */
-    protected function alreadyExists($rawName)
+    protected function alreadyExists($rawName): bool
     {
         return class_exists($rawName);
     }
