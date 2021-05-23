@@ -26,24 +26,13 @@ class MakeService extends GeneratorCommand
      * @var string
      */
     protected $type = 'Service';
-
-    /**
-     * Determine if the class already exists.
-     *
-     * @param  string  $rawName
-     * @return bool
-     */
-    protected function alreadyExists($rawName): bool
-    {
-        return class_exists($rawName);
-    }
-
+    
     /**
      * @return string
      */
     protected function getStub(): string
     {
-        return __DIR__ . '/src/Stubs/service.stub';
+        return __DIR__ . '/Stubs/service.stub';
     }
 
     /**
