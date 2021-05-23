@@ -1,6 +1,6 @@
 <?php
 
-namespace getsolaris\LaravelMakeService\Services;
+namespace Getsolaris\LaravelMakeService\Services;
 
 /**
  * Interface ServiceContract
