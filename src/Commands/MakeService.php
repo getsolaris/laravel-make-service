@@ -1,6 +1,6 @@
 <?php
 
-namespace Getsolaris\LaravelMakeService\Commands;
+namespace Getsolaris\LaravelMakeService;
 
 use Illuminate\Console\GeneratorCommand;
 
@@ -41,7 +41,7 @@ class MakeService extends GeneratorCommand
     /**
      * @return string
      */
-    private function getStub(): string
+    protected function getStub(): string
     {
         return __DIR__ . '/src/Stubs/service.stub';
     }
