@@ -2,7 +2,6 @@
 
 namespace Getsolaris\LaravelMakeService;
 
-use Getsolaris\LaravelMakeService\Commands\MakeService;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelMakeServiceProvider extends ServiceProvider
@@ -12,7 +11,7 @@ class LaravelMakeServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->commands(MakeService::class);
     }
