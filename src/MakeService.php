@@ -93,10 +93,17 @@ class MakeService extends GeneratorCommand
 
         // Whether to create contract
         if ($isContract) {
-            $contractName = str_replace($this->getNameInput(), $this->getNameInput() . 'Contract.php', $this->getNameInput());
+            $contractName = $this->getNameInput() . 'Contract.php';
             $contractPath = str_replace($this->getNameInput() . '.php', 'Contracts/', $path);
+            
             $this->makeDirectory($contractPath . $contractName);
-            $this->files->put($contractPath . $contractName, $this->sortImports($this->buildServiceContractInterface($this->getNameInput())));
+
+            $this->files->put($contractPath . $contractName,
+                $this->sortImports(
+                    $this->buildServiceContractInterface($this->getNameInput())
+                )
+            );
+
             $message .= ' and Contract';
         }
 
