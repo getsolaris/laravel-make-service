@@ -12,6 +12,11 @@ use Illuminate\Console\GeneratorCommand;
 class MakeService extends GeneratorCommand
 {
     /**
+     * STUB_PATH
+     */
+    const STUB_PATH = __DIR__ . ' /Stubs/';
+
+    /**
      * The name and signature of the console command.
      *
      * @var string
@@ -40,11 +45,8 @@ class MakeService extends GeneratorCommand
      */
     protected function getServiceStub(bool $isContract): string
     {
-        if ($isContract) {
-            return __DIR__ . '/Stubs/service.stub';
-        }
-
-        return __DIR__ . '/Stubs/service.origin.stub';
+        return self::STUB_PATH .
+            $isContract ? 'service.origin.stub' : 'service.stub';
     }
 
     /**
@@ -52,7 +54,7 @@ class MakeService extends GeneratorCommand
      */
     protected function getServiceContractStub(): string
     {
-        return __DIR__ . '/Stubs/service.contract.stub';
+        return self::STUB_PATH . 'service.contract.stub';
     }
 
     /**
@@ -95,7 +97,7 @@ class MakeService extends GeneratorCommand
         if ($isContract) {
             $contractName = $this->getNameInput() . 'Contract.php';
             $contractPath = str_replace($this->getNameInput() . '.php', 'Contracts/', $path);
-            
+
             $this->makeDirectory($contractPath . $contractName);
 
             $this->files->put($contractPath . $contractName,
