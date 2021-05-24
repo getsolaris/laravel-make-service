@@ -1,0 +1,12 @@
+<?php
+
+namespace {{ namespace }};
+
+/**
+ * Class {{ class }}
+ * @package App\Services
+ */
+class {{ class }}
+{
+
+}

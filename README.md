@@ -4,8 +4,8 @@
 <a href="https://packagist.org/packages/getsolaris/laravel-make-service"><img src="https://poser.pugx.org/getsolaris/laravel-make-service/license.svg" alt="License"></a>
 </p>
 
-# Introduction
-Laravel Make Service Class
+# A MVCS pattern create a service command for Laravel 5+
+Create a new service class and service contract
 
 # Install
 ```bash
@@ -13,13 +13,6 @@ composer require getsolaris/laravel-make-service
 ```
 
 # Usage
-```php
-// config/app.php
-'providers' => [
-    getsolaris\LaravelCreateService\CreateServiceProvider::class,
-];
-```
-
 ```bash
-php artisan make:service {name}
+php artisan make:service {name : Create a service class} {--c : Create a service contract}
 ```
