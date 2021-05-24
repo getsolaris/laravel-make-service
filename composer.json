@@ -5,6 +5,7 @@
         "laravel",
         "mvcs",
         "service",
+        "contract",
         "pattern"
     ],
     "type": "library",
