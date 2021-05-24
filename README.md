@@ -5,7 +5,7 @@
 </p>
 
 # A MVCS pattern create a service command for Laravel 5+
-Create a new service class
+Create a new service class and service contract
 
 # Install
 ```bash
@@ -13,13 +13,6 @@ composer require getsolaris/laravel-make-service
 ```
 
 # Usage
-```php
-// config/app.php
-'providers' => [
-    Getsolaris\LaravelMakeService\LaravelMakeServiceProvider::class,
-];
-```
-
 ```bash
-php artisan make:service {name}
+php artisan make:service {name : Create a service class} {--c : Create a service contract}
 ```

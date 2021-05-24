@@ -8,7 +8,7 @@ use {{ namespace }}\Contracts\{{ class }}Contract;
  * Class {{ class }}
  * @package App\Services
  */
-class {{ class }} implements {{ class }}Contract
+class {{ class }} {{ implements {{ class }}Contract }}
 {
 
 }
