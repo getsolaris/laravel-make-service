@@ -1,6 +1,6 @@
 <?php
 
-namespace {{ namespace }}\Contracts;
+namespace App\Services\Contracts;
 
 /**
  * Interface {{ class }}Contract
