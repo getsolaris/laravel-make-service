@@ -5,16 +5,16 @@ namespace Getsolaris\LaravelMakeService;
 use Illuminate\Console\GeneratorCommand;
 
 /**
- * Class MakeService
- * @package Getsolaris\LaravelMakeService
+ * Class MakeService.
+ *
  * @author  getsolaris (https://github.com/getsolaris)
  */
 class MakeService extends GeneratorCommand
 {
     /**
-     * STUB_PATH
+     * STUB_PATH.
      */
-    const STUB_PATH = __DIR__ . ' /Stubs/';
+    const STUB_PATH = __DIR__.' /Stubs/';
 
     /**
      * The name and signature of the console command.
@@ -37,15 +37,18 @@ class MakeService extends GeneratorCommand
      */
     protected $type = 'Service';
 
-    protected function getStub() { }
+    protected function getStub()
+    {
+    }
 
     /**
      * @param bool $isContract
+     *
      * @return string
      */
     protected function getServiceStub(bool $isContract): string
     {
-        return self::STUB_PATH .
+        return self::STUB_PATH.
             $isContract ? 'service.origin.stub' : 'service.stub';
     }
 
@@ -54,16 +57,17 @@ class MakeService extends GeneratorCommand
      */
     protected function getServiceContractStub(): string
     {
-        return self::STUB_PATH . 'service.contract.stub';
+        return self::STUB_PATH.'service.contract.stub';
     }
 
     /**
      * Execute the console command.
      *
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     *
      * @return bool|null
      *
      * @see \Illuminate\Console\GeneratorCommand
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function handle()
     {
@@ -77,8 +81,8 @@ class MakeService extends GeneratorCommand
 
         $path = $this->getPath($name);
 
-        if ((! $this->hasOption('force') ||
-                ! $this->option('force')) &&
+        if ((!$this->hasOption('force') ||
+                !$this->option('force')) &&
             $this->alreadyExists($this->getNameInput())) {
             $this->error($this->type.' already exists!');
 
@@ -95,12 +99,13 @@ class MakeService extends GeneratorCommand
 
         // Whether to create contract
         if ($isContract) {
-            $contractName = $this->getNameInput() . 'Contract.php';
-            $contractPath = str_replace($this->getNameInput() . '.php', 'Contracts/', $path);
+            $contractName = $this->getNameInput().'Contract.php';
+            $contractPath = str_replace($this->getNameInput().'.php', 'Contracts/', $path);
 
-            $this->makeDirectory($contractPath . $contractName);
+            $this->makeDirectory($contractPath.$contractName);
 
-            $this->files->put($contractPath . $contractName,
+            $this->files->put(
+                $contractPath.$contractName,
                 $this->sortImports(
                     $this->buildServiceContractInterface($this->getNameInput())
                 )
@@ -109,7 +114,7 @@ class MakeService extends GeneratorCommand
             $message .= ' and Contract';
         }
 
-        $this->info($message . ' created successfully.');
+        $this->info($message.' created successfully.');
     }
 
     /**
@@ -117,9 +122,10 @@ class MakeService extends GeneratorCommand
      *
      * @param string $name
      * @param $isContract
-     * @return string
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     *
+     * @return string
      */
     protected function buildServiceClass($name, $isContract): string
     {
@@ -131,10 +137,11 @@ class MakeService extends GeneratorCommand
     /**
      * Build the class with the given name.
      *
-     * @param  string  $name
-     * @return string
+     * @param string $name
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     *
+     * @return string
      */
     protected function buildServiceContractInterface($name): string
     {
@@ -145,10 +152,11 @@ class MakeService extends GeneratorCommand
 
     /**
      * @param $rootNamespace
+     *
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return $rootNamespace . '\Services';
+        return $rootNamespace.'\Services';
     }
 }
