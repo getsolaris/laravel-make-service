@@ -81,8 +81,8 @@ class MakeService extends GeneratorCommand
 
         $path = $this->getPath($name);
 
-        if ((!$this->hasOption('force') ||
-                !$this->option('force')) &&
+        if ((! $this->hasOption('force') ||
+                ! $this->option('force')) &&
             $this->alreadyExists($this->getNameInput())) {
             $this->error($this->type.' already exists!');
 
