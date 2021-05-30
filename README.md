@@ -15,5 +15,5 @@ composer require getsolaris/laravel-make-service
 
 # Usage
 ```bash
-php artisan make:service {name : Create a service class} {--c : Create a service contract}
+php artisan make:service {name : Create a service class} {--c : Option of create a service contract}
 ```
