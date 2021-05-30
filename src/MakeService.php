@@ -14,7 +14,7 @@ class MakeService extends GeneratorCommand
     /**
      * STUB_PATH
      */
-    const STUB_PATH = __DIR__ . ' /Stubs/';
+    const STUB_PATH = __DIR__ . '/Stubs/';
 
     /**
      * The name and signature of the console command.
@@ -46,7 +46,7 @@ class MakeService extends GeneratorCommand
     protected function getServiceStub(bool $isContract): string
     {
         return self::STUB_PATH .
-            $isContract ? 'service.origin.stub' : 'service.stub';
+            ($isContract ? 'service.origin.stub' : 'service.stub');
     }
 
     /**
