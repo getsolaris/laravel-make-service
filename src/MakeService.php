@@ -5,16 +5,15 @@ namespace Getsolaris\LaravelMakeService;
 use Illuminate\Console\GeneratorCommand;
 
 /**
- * Class MakeService
- * @package Getsolaris\LaravelMakeService
+ * Class MakeService.
  * @author  getsolaris (https://github.com/getsolaris)
  */
 class MakeService extends GeneratorCommand
 {
     /**
-     * STUB_PATH
+     * STUB_PATH.
      */
-    const STUB_PATH = __DIR__ . '/Stubs/';
+    const STUB_PATH = __DIR__.'/Stubs/';
 
     /**
      * The name and signature of the console command.
@@ -37,7 +36,9 @@ class MakeService extends GeneratorCommand
      */
     protected $type = 'Service';
 
-    protected function getStub() { }
+    protected function getStub()
+    {
+    }
 
     /**
      * @param bool $isContract
@@ -45,7 +46,7 @@ class MakeService extends GeneratorCommand
      */
     protected function getServiceStub(bool $isContract): string
     {
-        return self::STUB_PATH .
+        return self::STUB_PATH.
             ($isContract ? 'service.origin.stub' : 'service.stub');
     }
 
@@ -54,7 +55,7 @@ class MakeService extends GeneratorCommand
      */
     protected function getServiceContractStub(): string
     {
-        return self::STUB_PATH . 'service.contract.stub';
+        return self::STUB_PATH.'service.contract.stub';
     }
 
     /**
@@ -95,12 +96,12 @@ class MakeService extends GeneratorCommand
 
         // Whether to create contract
         if ($isContract) {
-            $contractName = $this->getNameInput() . 'Contract.php';
-            $contractPath = str_replace($this->getNameInput() . '.php', 'Contracts/', $path);
+            $contractName = $this->getNameInput().'Contract.php';
+            $contractPath = str_replace($this->getNameInput().'.php', 'Contracts/', $path);
 
-            $this->makeDirectory($contractPath . $contractName);
+            $this->makeDirectory($contractPath.$contractName);
 
-            $this->files->put($contractPath . $contractName,
+            $this->files->put($contractPath.$contractName,
                 $this->sortImports(
                     $this->buildServiceContractInterface($this->getNameInput())
                 )
@@ -109,7 +110,7 @@ class MakeService extends GeneratorCommand
             $message .= ' and Contract';
         }
 
-        $this->info($message . ' created successfully.');
+        $this->info($message.' created successfully.');
     }
 
     /**
@@ -149,6 +150,6 @@ class MakeService extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return $rootNamespace . '\Services';
+        return $rootNamespace.'\Services';
     }
 }
