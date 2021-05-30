@@ -65,6 +65,7 @@ class UserService implements UserServiceContract
 ```
 
 ```php
+<?php
 // app/Http/Services/Contracts/UserServiceContract
 
 namespace App\Services\Contracts;
