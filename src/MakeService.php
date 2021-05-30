@@ -47,7 +47,7 @@ class MakeService extends GeneratorCommand
     protected function getServiceStub(bool $isContract): string
     {
         return self::STUB_PATH.
-            ($isContract ? 'service.origin.stub' : 'service.stub');
+            ($isContract ? 'service.stub' : 'service.origin.stub');
     }
 
     /**
