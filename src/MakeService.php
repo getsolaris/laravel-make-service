@@ -6,6 +6,7 @@ use Illuminate\Console\GeneratorCommand;
 
 /**
  * Class MakeService.
+ *
  * @author  getsolaris (https://github.com/getsolaris)
  */
 class MakeService extends GeneratorCommand
@@ -41,7 +42,7 @@ class MakeService extends GeneratorCommand
     }
 
     /**
-     * @param bool $isContract
+     * @param  bool  $isContract
      * @return string
      */
     protected function getServiceStub(bool $isContract): string
@@ -64,6 +65,7 @@ class MakeService extends GeneratorCommand
      * @return bool|null
      *
      * @see \Illuminate\Console\GeneratorCommand
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function handle()
@@ -116,7 +118,7 @@ class MakeService extends GeneratorCommand
     /**
      * Build the class with the given name.
      *
-     * @param string $name
+     * @param  string  $name
      * @param $isContract
      * @return string
      *
