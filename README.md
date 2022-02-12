@@ -5,16 +5,20 @@
 </p>
 
 # A MVCS pattern create a service command for Laravel 5+
-Create a new service class and service contract
+Create a new service class and service interface
 
 # Install
 ```bash
 composer require getsolaris/laravel-make-service
 ```
 
+# Suggest
+im@getsolaris.kr
+
+
 # Usage
 ```bash
-$ php artisan make:service {name : Create a service class} {--c : Optional of create a service contract}
+$ php artisan make:service {name : Create a service class} {--i : Optional of create a service interface}
 ```
 
 # Example
@@ -40,22 +44,28 @@ class UserService
 }
 ```
 
-## + Optional service contract
+## + Optional service interface
+
+```
+v1.0.x -> contract
+v1.1.x -> interface
+```
+
 ```bash
-$ php artisan make:service UserService --c
+$ php artisan make:service UserService --i
 ```
 
 ```php
 <?php
-// app/Http/Services/Contracts/UserServiceContract.php
+// app/Http/Services/Contracts/UserServiceInterface.php
 
-namespace App\Services\Contracts;
+namespace App\Services\Interfaces;
 
 /**
- * Interface UserServiceContract
- * @package App\Services\Contracts
+ * Interface UserServiceInterface
+ * @package App\Services\Interfaces
  */
-interface UserServiceContract
+interface UserServiceInterface
 {
 
 }
