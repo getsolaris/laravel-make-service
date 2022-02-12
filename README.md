@@ -12,6 +12,10 @@ Create a new service class and service contract
 composer require getsolaris/laravel-make-service
 ```
 
+# Suggest
+im@getsolaris.kr
+
+
 # Usage
 ```bash
 $ php artisan make:service {name : Create a service class} {--c : Optional of create a service contract}
