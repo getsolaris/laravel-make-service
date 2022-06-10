@@ -2,13 +2,13 @@
 
 namespace {{ namespace }};
 
-use {{ namespace }}\Contracts\{{ class }}Contract;
+use {{ namespace }}\Interfaces\{{ class }}Interface;
 
 /**
  * Class {{ class }}
  * @package App\Services
  */
-class {{ class }} implements {{ class }}Contract
+class {{ class }} implements {{ class }}Interface
 {
 
 }

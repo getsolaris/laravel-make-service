@@ -21,7 +21,7 @@ class MakeService extends GeneratorCommand
      *
      * @var string
      */
-    protected $signature = 'make:service {name : Create a service class} {--c : Create a service contract}';
+    protected $signature = 'make:service {name : Create a service class} {--i : Create a service interface}';
 
     /**
      * The console command description.
@@ -42,21 +42,24 @@ class MakeService extends GeneratorCommand
     }
 
     /**
-     * @param bool $isContract
      * @return string
      */
-    protected function getServiceStub(bool $isContract): string
+    protected function getServiceStub(): string
     {
-        return self::STUB_PATH .
-            ($isContract ? 'service.stub' : 'service.origin.stub');
+        return self::STUB_PATH . 'service.stub';
+    }
+
+    protected function getInterfaceStub(): string
+    {
+        return self::STUB_PATH . 'interface.stub';
     }
 
     /**
      * @return string
      */
-    protected function getServiceContractStub(): string
+    protected function getServiceInterfaceStub(): string
     {
-        return self::STUB_PATH . 'service.contract.stub';
+        return self::STUB_PATH . 'service.interface.stub';
     }
 
     /**
@@ -89,31 +92,31 @@ class MakeService extends GeneratorCommand
         }
 
         $this->makeDirectory($path);
-        $isContract = $this->option('c');
+        $isInterface = $this->option('i');
 
         $this->files->put(
             $path,
             $this->sortImports(
-                $this->buildServiceClass($name, $isContract)
+                $this->buildServiceClass($name, $isInterface)
             )
         );
         $message = $this->type;
 
         // Whether to create contract
-        if ($isContract) {
-            $contractName = $this->getNameInput() . 'Contract.php';
-            $contractPath = str_replace($this->getNameInput() . '.php', 'Contracts/', $path);
+        if ($isInterface) {
+            $interfaceName = $this->getNameInput() . 'Interface.php';
+            $interfacePath = str_replace($this->getNameInput() . '.php', 'Interfaces/', $path);
 
-            $this->makeDirectory($contractPath . $contractName);
+            $this->makeDirectory($interfacePath . $interfaceName);
 
             $this->files->put(
-                $contractPath . $contractName,
+                $interfacePath . $interfaceName,
                 $this->sortImports(
-                    $this->buildServiceContractInterface($this->getNameInput())
+                    $this->buildServiceInterface($this->getNameInput())
                 )
             );
 
-            $message .= ' and Contract';
+            $message .= ' and Interface';
         }
 
         $this->info($message . ' created successfully.');
@@ -123,14 +126,16 @@ class MakeService extends GeneratorCommand
      * Build the class with the given name.
      *
      * @param string $name
-     * @param $isContract
+     * @param $isInterface
      * @return string
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    protected function buildServiceClass($name, $isContract): string
+    protected function buildServiceClass(string $name, $isInterface): string
     {
-        $stub = $this->files->get($this->getServiceStub($isContract));
+        $stub = $this->files->get(
+            $isInterface ? $this->getServiceInterfaceStub() : $this->getServiceStub()
+        );
 
         return $this->replaceNamespace($stub, $name)->replaceClass($stub, $name);
     }
@@ -143,9 +148,9 @@ class MakeService extends GeneratorCommand
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    protected function buildServiceContractInterface($name): string
+    protected function buildServiceInterface(string $name): string
     {
-        $stub = $this->files->get($this->getServiceContractStub());
+        $stub = $this->files->get($this->getInterfaceStub());
 
         return $this->replaceNamespace($stub, $name)->replaceClass($stub, $name);
     }

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Services\Contracts;
+namespace App\Services\Interfaces;
 
 /**
- * Interface {{ class }}Contract
- * @package App\Services\Contracts
+ * Interface {{ class }}Interface
+ * @package App\Services\Interfaces
  */
-interface {{ class }}Contract
+interface {{ class }}Interface
 {
 
 }
