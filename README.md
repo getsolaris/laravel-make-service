@@ -9,7 +9,7 @@ Create a new service class and service interface
 
 # Install
 ```bash
-composer require getsolaris/laravel-make-service
+composer require getsolaris/laravel-make-service --dev
 ```
 
 # Suggest
