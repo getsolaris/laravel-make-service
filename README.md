@@ -1,6 +1,6 @@
 <p align="center">
 
-[![Latest Stable Version](http://poser.pugx.org/getsolaris/laravel-make-service/v)](https://packagist.org/packages/getsolaris/laravel-make-service)[![Monthly Downloads](http://poser.pugx.org/getsolaris/laravel-make-service/d/monthly)](https://packagist.org/packages/getsolaris/laravel-make-service)
+[![Latest Stable Version](http://poser.pugx.org/getsolaris/laravel-make-service/v)](https://packagist.org/packages/getsolaris/laravel-make-service) [![Monthly Downloads](http://poser.pugx.org/getsolaris/laravel-make-service/d/monthly)](https://packagist.org/packages/getsolaris/laravel-make-service)
 [![Total Downloads](http://poser.pugx.org/getsolaris/laravel-make-service/downloads)](https://packagist.org/packages/getsolaris/laravel-make-service)
 [![License](http://poser.pugx.org/getsolaris/laravel-make-service/license)](https://packagist.org/packages/getsolaris/laravel-make-service)
 [![PHP Version Require](http://poser.pugx.org/getsolaris/laravel-make-service/require/php)](https://packagist.org/packages/getsolaris/laravel-make-service)
