@@ -1,7 +1,10 @@
 <p align="center">
-<a href="https://packagist.org/packages/getsolaris/laravel-make-service"><img src="https://poser.pugx.org/getsolaris/laravel-make-service/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/getsolaris/laravel-make-service"><img src="https://poser.pugx.org/getsolaris/laravel-make-service/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/getsolaris/laravel-make-service"><img src="https://poser.pugx.org/getsolaris/laravel-make-service/license.svg" alt="License"></a>
+[![Latest Stable Version](http://poser.pugx.org/getsolaris/laravel-make-service/v)](https://packagist.org/packages/getsolaris/laravel-make-service) 
+[![Monthly Downloads](http://poser.pugx.org/getsolaris/laravel-make-service/d/monthly)](https://packagist.org/packages/getsolaris/laravel-make-service)
+[![Total Downloads](http://poser.pugx.org/getsolaris/laravel-make-service/downloads)](https://packagist.org/packages/getsolaris/laravel-make-service)
+[![License](http://poser.pugx.org/getsolaris/laravel-make-service/license)](https://packagist.org/packages/getsolaris/laravel-make-service)
+[![PHP Version Require](http://poser.pugx.org/getsolaris/laravel-make-service/require/php)](https://packagist.org/packages/getsolaris/laravel-make-service)
+
 </p>
 
 # A MVCS pattern create a service command for Laravel 5+
