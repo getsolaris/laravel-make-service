@@ -16,7 +16,7 @@ composer require getsolaris/laravel-make-service --dev
 ```
 
 # Suggest
-im@getsolaris.kr
+getsolaris.kr@gmail.com
 
 
 # Usage
