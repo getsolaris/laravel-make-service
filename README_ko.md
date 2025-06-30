@@ -6,44 +6,44 @@
 [![License](http://poser.pugx.org/getsolaris/laravel-make-service/license)](https://packagist.org/packages/getsolaris/laravel-make-service)
 [![PHP Version Require](http://poser.pugx.org/getsolaris/laravel-make-service/require/php)](https://packagist.org/packages/getsolaris/laravel-make-service)
 
-A Laravel package that provides an Artisan command to generate service classes, implementing the MVCS (Model-View-Controller-Service) pattern in your Laravel applications.
+Laravel 애플리케이션에서 MVCS (Model-View-Controller-Service) 패턴을 구현하기 위한 서비스 클래스를 생성하는 Artisan 명령어를 제공하는 Laravel 패키지입니다.
 
-## Overview
+## 개요
 
-This package simplifies the creation of service layer classes in Laravel applications. It helps you maintain clean architecture by separating business logic from controllers, making your code more maintainable, testable, and reusable.
+이 패키지는 Laravel 애플리케이션에서 서비스 레이어 클래스 생성을 간소화합니다. 비즈니스 로직을 컨트롤러에서 분리하여 클린 아키텍처를 유지하도록 도와주며, 코드를 더 유지보수하기 쉽고, 테스트 가능하며, 재사용 가능하게 만들어줍니다.
 
-## Requirements
+## 요구사항
 
-- PHP 7.1 or higher
-- Laravel 5.6.34 or higher (supports up to Laravel 12)
+- PHP 7.1 이상
+- Laravel 5.6.34 이상 (Laravel 12까지 지원)
 
-## Installation
+## 설치
 
-Install the package via Composer:
+Composer를 통해 패키지를 설치합니다:
 
 ```bash
 composer require getsolaris/laravel-make-service --dev
 ```
 
-The package will automatically register itself using Laravel's package discovery.
+패키지는 Laravel의 패키지 자동 검색 기능을 사용하여 자동으로 등록됩니다.
 
-## Usage
+## 사용법
 
-### Basic Command Syntax
+### 기본 명령어 구문
 
 ```bash
-php artisan make:service {name} {--i : Create a service interface}
+php artisan make:service {name} {--i : 서비스 인터페이스 생성}
 ```
 
-### Creating a Service Class
+### 서비스 클래스 생성
 
-To create a simple service class:
+간단한 서비스 클래스를 생성하려면:
 
 ```bash
 php artisan make:service UserService
 ```
 
-This will create a service class at `app/Services/UserService.php`:
+이 명령은 `app/Services/UserService.php`에 서비스 클래스를 생성합니다:
 
 ```php
 <?php
@@ -56,17 +56,17 @@ class UserService
 }
 ```
 
-### Creating a Service with Interface
+### 인터페이스와 함께 서비스 생성
 
-To create a service class with its corresponding interface:
+서비스 클래스와 해당 인터페이스를 함께 생성하려면:
 
 ```bash
 php artisan make:service UserService --i
 ```
 
-This will create two files:
+이 명령은 두 개의 파일을 생성합니다:
 
-1. **Service class** at `app/Services/UserService.php`:
+1. **서비스 클래스** `app/Services/UserService.php`:
 ```php
 <?php
 
@@ -80,7 +80,7 @@ class UserService implements UserServiceInterface
 }
 ```
 
-2. **Interface** at `app/Services/Interfaces/UserServiceInterface.php`:
+2. **인터페이스** `app/Services/Interfaces/UserServiceInterface.php`:
 ```php
 <?php
 
@@ -92,9 +92,9 @@ interface UserServiceInterface
 }
 ```
 
-## Practical Examples
+## 실제 예제
 
-### Example Service Implementation
+### 서비스 구현 예제
 
 ```php
 <?php
@@ -109,7 +109,7 @@ use Illuminate\Support\Facades\Hash;
 class UserService implements UserServiceInterface
 {
     /**
-     * Create a new user
+     * 새로운 사용자 생성
      *
      * @param array $data
      * @return User
@@ -126,7 +126,7 @@ class UserService implements UserServiceInterface
     }
 
     /**
-     * Update user information
+     * 사용자 정보 업데이트
      *
      * @param User $user
      * @param array $data
@@ -142,7 +142,7 @@ class UserService implements UserServiceInterface
     }
 
     /**
-     * Get user statistics
+     * 사용자 통계 조회
      *
      * @param User $user
      * @return array
@@ -158,7 +158,7 @@ class UserService implements UserServiceInterface
 }
 ```
 
-### Using Services in Controllers
+### 컨트롤러에서 서비스 사용하기
 
 ```php
 <?php
@@ -184,7 +184,7 @@ class UserController extends Controller
         $user = $this->userService->createUser($request->validated());
 
         return response()->json([
-            'message' => 'User created successfully',
+            'message' => '사용자가 성공적으로 생성되었습니다',
             'user' => $user
         ], 201);
     }
@@ -194,7 +194,7 @@ class UserController extends Controller
         $this->userService->updateUser($user, $request->validated());
 
         return response()->json([
-            'message' => 'User updated successfully',
+            'message' => '사용자가 성공적으로 업데이트되었습니다',
             'user' => $user->fresh()
         ]);
     }
@@ -208,19 +208,19 @@ class UserController extends Controller
 }
 ```
 
-## Contributing
+## 기여하기
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+기여를 환영합니다! 자유롭게 Pull Request를 제출해주세요.
 
-## Support
+## 지원
 
-If you discover any issues or have questions, please [create an issue](https://github.com/getsolaris/laravel-make-service/issues).
+문제를 발견하거나 질문이 있으시면 [이슈를 생성](https://github.com/getsolaris/laravel-make-service/issues)해주세요.
 
-## Author
+## 작성자
 
 - **Solaris** - [getsolaris](https://github.com/getsolaris)
-- Email: getsolaris.kr@gmail.com
+- 이메일: getsolaris.kr@gmail.com
 
-## License
+## 라이선스
 
-This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+이 패키지는 [MIT 라이선스](https://opensource.org/licenses/MIT) 하에 오픈소스 소프트웨어입니다.
